@@ -10,6 +10,7 @@ def best_audio():
         'format': 'bestaudio/best',
         'ignoreerrors': True,
         'outtmpl': download_location + '/%(title)s.%(mp3)s',
+        'ffmpeglocation': './',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
@@ -22,6 +23,7 @@ def best_video():
         'format': 'bestvideo+bestaudio/best',
         'ignoreerrors': True,
         'outtmpl': download_location + '/%(title)s',
+        'ffmpeglocation': './',
     }
 
 
@@ -31,12 +33,14 @@ def video_specific_quality(vid_quality):
             'format': 'bestvideo[height<={}]+bestaudio/best'.format(int(vid_quality)),
             'ignoreerrors': True,
             'outtmpl': download_location + '/%(title)s',
+            'ffmpeglocation': './',
         }
     except ValueError:
         return {
             'format': 'bestvideo[height<=720]+bestaudio/best',
             'ignoreerrors': True,
             'outtmpl': download_location + '/%(title)s',
+            'ffmpeglocation': './',
         }
 
 
