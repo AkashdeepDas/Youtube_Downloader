@@ -11,9 +11,13 @@ def best_audio():
         'ignoreerrors': True,
         'outtmpl': download_location + '/%(title)s.%(mp3)s',
         'ffmpeglocation': './',
+        'addmetadata': True,
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
+        },
+            {
+            'key': 'FFmpegMetadata',
         }],
     }
 
